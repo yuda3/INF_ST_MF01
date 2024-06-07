@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter out = resp.getWriter();
         out.println("Hello Servlet");
     }
