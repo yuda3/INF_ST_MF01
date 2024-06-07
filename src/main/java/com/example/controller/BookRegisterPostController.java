@@ -24,7 +24,7 @@ public class BookRegisterPostController extends HttpServlet {
             String reqPage = req.getParameter("page");
             if(title == null || title.trim().isEmpty()|| author==null||author.trim().isEmpty()) {
                 System.out.println("check your Input");
-                resp.sendRedirect("/MF01/error");
+                resp.sendRedirect("/MF01/error?msg=1");
                 return;
 
             }
@@ -35,12 +35,12 @@ public class BookRegisterPostController extends HttpServlet {
                 page = Integer.parseInt(reqPage);
             }catch(NumberFormatException e){
                     System.out.println("Check your parameters");
-                    resp.sendRedirect("/MF01/error");
+                    resp.sendRedirect("/MF01/error?msg=2");
                     return;
             }
             if(price <= 0 || page <= 0) {
                 System.out.println("Check your parameters");
-                resp.sendRedirect("/MF01/error");
+                resp.sendRedirect("/MF01/error?msg=3");
                 return;
             }
 
