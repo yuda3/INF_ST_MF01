@@ -12,4 +12,14 @@ public class BookDAOMyBatis {
             return session.selectList("bookList");
         }
     }
+
+    public int bookDelete(int id) {
+        try (SqlSession session = MyBatisUtil.openSession()){
+            int cnt = session.delete("bookDelete", id);
+            session.commit();
+            return cnt;
+
+        }
+
+    }
 }

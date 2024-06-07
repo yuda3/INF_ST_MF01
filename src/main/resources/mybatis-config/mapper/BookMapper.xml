@@ -7,6 +7,9 @@
     <select id="bookList" resultType="com.example.entity.BookDTO">
         SELECT * FROM BOOK ORDER BY NUM DESC
     </select>
+    <select id="bookDelete">
+        DELETE FROM BOOK WHERE NUM =#{num}
+    </select>
 
 
 </mapper>

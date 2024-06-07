@@ -13,6 +13,14 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goDel(num){
+            location.href="/MF01/delete?num="+num;
+        }
+        function goRegister(){
+            location.href="/MF01/registerGet";
+        }
+    </script>
 </head>
 <body>
 
@@ -29,6 +37,7 @@
                     <th>price</th>
                     <th>author</th>
                     <th>pages</th>
+                    <th>delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,10 +48,12 @@
                     <td>${book.price}</td>
                     <td>${book.author}</td>
                     <td>${book.page}</td>
+                    <td><button class="btn btn-sm btn-warning" onclick="goDel(${book.num})">Delete</button></td>
                 </tr>
                 </c:forEach>
                 </tbody>
             </table>
+            <button class="btn btn-sm btn-primary" onclick="goRegister()">Register</button>
         </div>
         <div class="card-footer">MK01</div>
     </div>
