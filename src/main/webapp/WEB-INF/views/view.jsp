@@ -13,49 +13,37 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function goDel(num){
-            location.href="/MF01/delete?num="+num;
-        }
-        function goRegister(){
-            location.href="/MF01/registerGet";
-        }
-    </script>
 </head>
 <body>
 
 <div class="container">
-    <h2>Web Database Programming</h2>
+    <h2>Card Header and Footer</h2>
     <div class="card">
-        <div class="card-header">Book List</div>
+        <div class="card-header">Header</div>
         <div class="card-body">
-            <table class="table table-bordered table-hover">
-                <thead>
+            <table class="table table-bordered">
                 <tr>
-                    <th>number</th>
-                    <th>title</th>
-                    <th>price</th>
-                    <th>author</th>
-                    <th>pages</th>
-                    <th>delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="book" items="${list}">
-                <tr>
+                    <td>Number</td>
                     <td>${book.num}</td>
-                    <td><a href="/MF01/view?num=${book.num}">${book.title}</a></td>
-                    <td>${book.price}</td>
-                    <td>${book.author}</td>
-                    <td>${book.page}</td>
-                    <td><button class="btn btn-sm btn-warning" onclick="goDel(${book.num})">Delete</button></td>
                 </tr>
-                </c:forEach>
-                </tbody>
+                <tr>
+                    <td>Title</td>
+                    <td>${book.title}</td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td>${book.author}</td>
+                </tr>
+                <tr>
+                    <td>Pager</td>
+                    <td>${book.page}</td>
+                </tr>
             </table>
-            <button class="btn btn-sm btn-primary" onclick="goRegister()">Register</button>
+            <button class="btn btn-sm btn-primary">List</button>
+            <button class="btn btn-sm btn-success">Modify</button>
+            <button class="btn btn-sm btn-warning">Delete</button>
         </div>
-        <div class="card-footer">MK01</div>
+        <div class="card-footer">Footer</div>
     </div>
 </div>
 

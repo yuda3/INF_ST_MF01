@@ -27,4 +27,12 @@ public class BookDAOMyBatis {
             return cnt;
         }
     }
+
+    public BookDTO bookView(int num) {
+        try(SqlSession session = MyBatisUtil.openSession()){
+            BookDTO dto = session.selectOne("bookView", num);
+            return dto;
+        }
+
+    }
 }
