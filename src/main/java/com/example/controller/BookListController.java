@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import com.example.entity.BookDTO;
-import com.example.repository.BookDAO;
 import com.example.repository.BookDAOMyBatis;
 
 import javax.servlet.RequestDispatcher;
