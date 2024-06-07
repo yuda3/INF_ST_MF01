@@ -3,7 +3,6 @@ package com.example.controller;
 import com.example.entity.BookDTO;
 import com.example.repository.BookDAOMyBatis;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/registerPost")
 public class BookRegisterPostController extends HttpServlet {
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         try {
             req.setCharacterEncoding("utf-8");
             String title = req.getParameter("title");
@@ -28,8 +27,8 @@ public class BookRegisterPostController extends HttpServlet {
                 return;
 
             }
-            int price = 0;
-            int page = 0;
+            int price;
+            int page;
             try {
                 price = Integer.parseInt(reqPrice);
                 page = Integer.parseInt(reqPage);

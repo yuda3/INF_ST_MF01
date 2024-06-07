@@ -30,8 +30,7 @@ public class BookDAOMyBatis {
 
     public BookDTO bookView(int num) {
         try(SqlSession session = MyBatisUtil.openSession()){
-            BookDTO dto = session.selectOne("bookView", num);
-            return dto;
+            return session.selectOne("bookView", num);
         }
 
     }
