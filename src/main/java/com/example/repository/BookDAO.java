@@ -18,7 +18,7 @@ public class BookDAO {
 
     public Connection getConnection() {
         String driveClassName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/book";
+        String url = "jdbc:mysql://localhost:3306/books";
         String user = "root";
         String password = "password";
         try {
@@ -32,7 +32,7 @@ public class BookDAO {
 
     public List<BookDTO> getAllBooks() {
         List<BookDTO> list = new ArrayList<>();
-        String SQL = "select * from book order by title desc";
+        String SQL = "select * from book order by num desc";
         conn = getConnection();
         try {
             rs = conn.prepareStatement(SQL).executeQuery();
@@ -44,7 +44,6 @@ public class BookDAO {
                 int page = rs.getInt("page");
                 BookDTO dto = new BookDTO(num,title,price,author,page);
                 list.add(dto);
-
             }
         }catch (Exception e){
             e.printStackTrace();
