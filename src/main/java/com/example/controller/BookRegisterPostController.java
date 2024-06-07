@@ -3,7 +3,6 @@ package com.example.controller;
 import com.example.entity.BookDTO;
 import com.example.repository.BookDAOMyBatis;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,19 +16,46 @@ import java.io.IOException;
 public class BookRegisterPostController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        req.setCharacterEncoding("utf-8");
-        String title = req.getParameter("title");
-        int price = Integer.parseInt(req.getParameter("price"));
-        String author = req.getParameter("author");
-        int page = Integer.parseInt(req.getParameter("page"));
-        BookDTO dto = new BookDTO(null,title,price,author,page);
+        try {
+            req.setCharacterEncoding("utf-8");
+            String title = req.getParameter("title");
+            String reqPrice = req.getParameter("price");
+            String author = req.getParameter("author");
+            String reqPage = req.getParameter("page");
+            if(title == null || title.trim().isEmpty()|| author==null||author.trim().isEmpty()) {
+                System.out.println("check your Input");
+                resp.sendRedirect("/MF01/error");
+                return;
 
-        BookDAOMyBatis dao = new BookDAOMyBatis();
-        int cnt = dao.bookInsert(dto);
-        if(cnt>0){
-            resp.sendRedirect("/MF01/list");
-        }else{
-            System.out.println("Fails");
+            }
+            int price = 0;
+            int page = 0;
+            try {
+                price = Integer.parseInt(reqPrice);
+                page = Integer.parseInt(reqPage);
+            }catch(NumberFormatException e){
+                    System.out.println("Check your parameters");
+                    resp.sendRedirect("/MF01/error");
+                    return;
+            }
+            if(price <= 0 || page <= 0) {
+                System.out.println("Check your parameters");
+                resp.sendRedirect("/MF01/error");
+                return;
+            }
+
+            BookDTO dto = new BookDTO(null,title,price,author,page);
+            BookDAOMyBatis dao = new BookDAOMyBatis();
+            int cnt = dao.bookInsert(dto);
+            if(cnt>0){
+                resp.sendRedirect("/MF01/list");
+            }else{
+                System.out.println("Register fail");
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            resp.sendRedirect("/MF01/error");
         }
 
     }
