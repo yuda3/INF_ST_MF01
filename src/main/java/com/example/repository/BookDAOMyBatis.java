@@ -18,8 +18,13 @@ public class BookDAOMyBatis {
             int cnt = session.delete("bookDelete", id);
             session.commit();
             return cnt;
-
         }
-
+    }
+    public int bookInsert(BookDTO bookDTO) {
+        try(SqlSession session = MyBatisUtil.openSession()){
+            int cnt = session.insert("bookInsert", bookDTO);
+            session.commit();
+            return cnt;
+        }
     }
 }

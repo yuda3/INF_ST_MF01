@@ -37,7 +37,7 @@ public class BookDAO {
         try {
             rs = conn.prepareStatement(SQL).executeQuery();
             while (rs.next()){
-                int num = rs.getInt("num");
+                Long num = rs.getLong("num");
                 String title = rs.getString("title");
                 int price = rs.getInt("price");
                 String author = rs.getString("author");
