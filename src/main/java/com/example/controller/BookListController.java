@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.entity.BookDTO;
 import com.example.repository.BookDAO;
+import com.example.repository.BookDAOMyBatis;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,8 +19,8 @@ import java.util.List;
 public class BookListController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        BookDAO dao = new BookDAO();
-        List<BookDTO> list = dao.getAllBooks();
+        BookDAOMyBatis dao = new BookDAOMyBatis();
+        List<BookDTO> list = dao.bookList();
         //binding
         req.setAttribute("list", list);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/list.jsp");

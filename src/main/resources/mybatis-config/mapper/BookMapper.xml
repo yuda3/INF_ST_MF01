@@ -4,7 +4,9 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.repository.BookDAO">
-
+    <select id="bookList" resultType="com.example.entity.BookDTO">
+        SELECT * FROM BOOK ORDER BY NUM DESC
+    </select>
 
 
 </mapper>
