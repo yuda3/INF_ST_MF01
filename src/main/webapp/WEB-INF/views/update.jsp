@@ -21,7 +21,7 @@
     <div class="card">
         <div class="card-header">Header</div>
         <div class="card-body">
-            <form action="/MF01/updatePost" method="post">
+            <form action="/MF01/updatePost.do" method="post">
                 <input type="hidden" name="num" id="num" value="${book.num}"/>
                 <div class="form-group">
                     <label for="title">Title:</label>
@@ -41,7 +41,7 @@
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Update</button>
                 <button type="reset" class="btn btn-sm btn-danger">Cancel</button>
-                <button type="button" class="btn btn-sm btn-info" onclick="location.href='/MF01/list'">List</button>
+                <button type="button" class="btn btn-sm btn-info" onclick="location.href='/MF01/list.do'">List</button>
             </form>
         </div>
         <div class="card-footer">Footer</div>

@@ -21,7 +21,7 @@
     <div class="card">
         <div class="card-header">Register</div>
         <div class="card-body">
-            <form action="/MF01/registerPost" method="post">
+            <form action="/MF01/registerPost.do" method="post">
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
@@ -39,7 +39,7 @@
                     <input type="text" class="form-control" placeholder="Enter page" id="page" name="page">
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Register</button>
-                <button type="reset" class="btn btn-sm btn-info" onclick="location.href='/MF01/list'">Cancel</button>
+                <button type="reset" class="btn btn-sm btn-info" onclick="location.href='/MF01/list.do'">Cancel</button>
             </form>
         </div>
         <div class="card-footer">Footer</div>

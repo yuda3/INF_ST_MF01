@@ -18,7 +18,7 @@
             location.href="/MF01/delete.do?num="+num;
         }
         function goRegister(){
-            location.href="/MF01/registerGet";
+            location.href="/MF01/registerGet.do";
         }
     </script>
 </head>
@@ -44,7 +44,7 @@
                 <c:forEach var="book" items="${list}">
                 <tr>
                     <td>${book.num}</td>
-                    <td><a href="/MF01/view?num=${book.num}">${book.title}</a></td>
+                    <td><a href="/MF01/view.do?num=${book.num}">${book.title}</a></td>
                     <td>${book.price}</td>
                     <td>${book.author}</td>
                     <td>${book.page}</td>
