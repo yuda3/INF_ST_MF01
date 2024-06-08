@@ -19,4 +19,12 @@
     <select id="bookView" resultType="com.example.entity.BookDTO">
         SELECT * FROM BOOK WHERE NUM=#{num}
     </select>
+    <update id="bookUpdate" parameterType="com.example.entity.BookDTO">
+        UPDATE BOOK SET
+        TITLE=#{title},
+        PRICE=#{price},
+        AUTHOR=#{author},
+        PAGE=#{page}
+        WHERE NUM=#{num}
+    </update>
 </mapper>

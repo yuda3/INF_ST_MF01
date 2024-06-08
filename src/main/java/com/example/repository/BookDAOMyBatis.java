@@ -34,4 +34,12 @@ public class BookDAOMyBatis {
         }
 
     }
+
+    public int bookUpdate(BookDTO dto) {
+        try(SqlSession session = MyBatisUtil.openSession()){
+            int cnt = session.insert("bookUpdate", dto);
+            session.commit();
+            return cnt;
+        }
+    }
 }

@@ -19,27 +19,29 @@
 <div class="container">
     <h2>Card Header and Footer</h2>
     <div class="card">
-        <div class="card-header">Register</div>
+        <div class="card-header">Header</div>
         <div class="card-body">
-            <form action="/MF01/registerPost" method="post">
+            <form action="/MF01/updatePost" method="post">
+                <input type="hidden" name="num" id="num" value="${book.num}"/>
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
+                    <input type="text" class="form-control" id="title" name="title" value="${book.title}">
                 </div>
                 <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="text" class="form-control" placeholder="Enter price" id="price" name="price">
+                    <input type="text" class="form-control" id="price" name="price" value="${book.price}">
                 </div>
                 <div class="form-group">
                     <label for="author">Author:</label>
-                    <input type="text" class="form-control" placeholder="Enter author" id="author" name="author">
+                    <input type="text" class="form-control" id="author" name="author" value="${book.author}">
                 </div>
                 <div class="form-group">
                     <label for="page">Page:</label>
-                    <input type="text" class="form-control" placeholder="Enter page" id="page" name="page">
+                    <input type="text" class="form-control" id="page" name="page" value="${book.page}">
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary">Register</button>
-                <button type="reset" class="btn btn-sm btn-info" onclick="location.href='/MF01/list'">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                <button type="reset" class="btn btn-sm btn-danger">Cancel</button>
+                <button type="button" class="btn btn-sm btn-info" onclick="location.href='/MF01/list'">List</button>
             </form>
         </div>
         <div class="card-footer">Footer</div>
