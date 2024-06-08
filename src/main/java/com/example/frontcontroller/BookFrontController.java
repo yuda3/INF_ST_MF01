@@ -42,10 +42,10 @@ public class BookFrontController extends HttpServlet {
         if(nextView != null){
             if(!nextView.contains(":/")){
                 //forward
-                req.getRequestDispatcher("/WEB-INF/views/"+nextView+".jsp").forward(req,resp);
+                req.getRequestDispatcher(ViewResolver.makeView(nextView)).forward(req,resp);
             }else{
                 //redirect
-                resp.sendRedirect("/MF01+"+nextView.split(":/")[1]);
+                resp.sendRedirect(nextView.split(":/")[1]);
             }
         }
     }
