@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 
@@ -39,13 +40,29 @@
                     <td>${book.page}</td>
                 </tr>
             </table>
-            <button class="btn btn-sm btn-primary">List</button>
-            <button class="btn btn-sm btn-success">Modify</button>
-            <button class="btn btn-sm btn-warning">Delete</button>
+            <button class="btn btn-sm btn-primary action">List</button>
+            <button class="btn btn-sm btn-success action">Modify</button>
+            <button class="btn btn-sm btn-warning action">Delete</button>
         </div>
         <div class="card-footer">Footer</div>
     </div>
 </div>
-
+<script>
+    document.querySelector(".card-body").addEventListener("click",function (e){
+        if(e.target.classList.contains("action")){
+            switch (e.target.classList[2]){
+                case "btn-primary":
+                    location.href="/MF01/list";
+                    break;
+                case "btn-success":
+                    location.href="/MF01/updateGet";//?num=2
+                    break;
+                case "btn-warning":
+                    location.href="/MF01/updateGet";
+                    break;
+            }
+        }
+    });
+</script>
 </body>
 </html>
