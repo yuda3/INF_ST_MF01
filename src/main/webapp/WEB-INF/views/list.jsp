@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function goDel(num){
-            location.href="/MF01/delete?num="+num;
+            location.href="/MF01/delete.do?num="+num;
         }
         function goRegister(){
             location.href="/MF01/registerGet";
