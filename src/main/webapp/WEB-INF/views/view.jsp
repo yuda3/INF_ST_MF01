@@ -47,21 +47,35 @@
         <div class="card-footer">Footer</div>
     </div>
 </div>
+<form id="myForm" method="post" action="">
+    <input type="hidden" name="num" id="num" value="${book.num}"/>
+</form>
 <script>
     document.querySelector(".card-body").addEventListener("click",function (e){
         if(e.target.classList.contains("action")){
+            let form = document.getElementById("myForm");
+            let inputNum = document.getElementById("num");
+
             switch (e.target.classList[2]){
                 case "btn-primary":
-                    location.href="/MF01/list";
+                    form.action="/MF01/list";
+                    if(inputNum){
+                        inputNum.remove();
+                    }
+                    form.method="GET";
                     break;
                 case "btn-success":
-                    location.href="/MF01/updateGet";//?num=2
+                    form.action="/MF01/updateGet";
+                    form.method="POST";
                     break;
                 case "btn-warning":
-                    location.href="/MF01/updateGet";
+                    form.action="/MF01/delete";
+                    form.method="POST";
                     break;
             }
+            form.submit();
         }
+
     });
 </script>
 </body>
