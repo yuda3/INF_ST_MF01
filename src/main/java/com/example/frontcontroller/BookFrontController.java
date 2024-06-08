@@ -1,7 +1,5 @@
 package com.example.frontcontroller;
 
-import com.example.controller.BookDeleteController;
-import com.example.controller.BookListController;
 import com.example.controller.Controller;
 
 import javax.servlet.ServletException;
@@ -19,24 +17,16 @@ public class BookFrontController extends HttpServlet {
         String reqPath = req.getRequestURI();
         String cPath = req.getContextPath();
         String command = reqPath.substring(cPath.length());
-        Controller controller;
-        String nextView = null;
-        switch (command) {
-            case "/list.do" -> {
-                controller = new BookListController();
-                nextView = controller.requestHandler(req, resp);
-            }
-            case "/delete.do" -> {
-                controller = new BookDeleteController();
-                nextView = controller.requestHandler(req, resp);
-            }
-            case "/update.do" -> {
-
-            }
+        HandlerMapping mapping = new HandlerMapping();
+        Controller controller = mapping.getController(command);
+        if (controller == null) {
+            return;
         }
+        String nextView = controller.requestHandler(req, resp);
         //NextViewによってforward, redirectに分岐
         navigate(req, resp, nextView);
     }
+
 
     private void navigate(HttpServletRequest req, HttpServletResponse resp,String nextView) throws ServletException, IOException {
         if(nextView != null){
