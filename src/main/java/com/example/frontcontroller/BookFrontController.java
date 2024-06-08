@@ -2,8 +2,8 @@ package com.example.frontcontroller;
 
 import com.example.controller.BookDeleteController;
 import com.example.controller.BookListController;
+import com.example.controller.Controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,20 +19,33 @@ public class BookFrontController extends HttpServlet {
         String reqPath = req.getRequestURI();
         String cPath = req.getContextPath();
         String command = reqPath.substring(cPath.length());
-
+        Controller controller;
+        String nextView = null;
         switch (command) {
             case "/list.do" -> {
-                BookListController controller = new BookListController();
-                String nextView = controller.requestHandler(req, resp);
-                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/list.jsp");
-                rd.forward(req, resp);
+                controller = new BookListController();
+                nextView = controller.requestHandler(req, resp);
             }
             case "/delete.do" -> {
-                BookDeleteController controller = new BookDeleteController();
-                String nextView = controller.requestHandler(req, resp);
-                resp.sendRedirect("/MF01/" + nextView.split(":/")[1]);
+                controller = new BookDeleteController();
+                nextView = controller.requestHandler(req, resp);
             }
             case "/update.do" -> {
+
+            }
+        }
+        //NextViewによってforward, redirectに分岐
+        navigate(req, resp, nextView);
+    }
+
+    private void navigate(HttpServletRequest req, HttpServletResponse resp,String nextView) throws ServletException, IOException {
+        if(nextView != null){
+            if(!nextView.contains(":/")){
+                //forward
+                req.getRequestDispatcher("/WEB-INF/views/"+nextView+".jsp").forward(req,resp);
+            }else{
+                //redirect
+                resp.sendRedirect("/MF01+"+nextView.split(":/")[1]);
             }
         }
     }

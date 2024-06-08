@@ -2,10 +2,8 @@ package com.example.controller;
 
 import com.example.repository.BookDAOMyBatis;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 
 public class BookDeleteController implements Controller{
