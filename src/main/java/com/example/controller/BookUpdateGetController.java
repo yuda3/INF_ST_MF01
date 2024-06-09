@@ -3,10 +3,8 @@ package com.example.controller;
 import com.example.entity.BookDTO;
 import com.example.repository.BookDAOMyBatis;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class BookUpdateGetController implements Controller{
 
