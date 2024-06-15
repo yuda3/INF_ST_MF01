@@ -28,6 +28,7 @@
     <h2>Web Database Programming</h2>
     <div class="card">
         <div class="card-header">
+            <c:if test="${empty cus}">
             <form class="form-inline" action="/MF01/login.do" method="post">
                 <label for="customer_id">ID:</label>
                 <input type="email" class="form-control" placeholder="Enter customer_id" id="customer_id" name="customer_id">
@@ -35,6 +36,13 @@
                 <input type="password" class="form-control" placeholder="Enter password" id="password">
                 <button type="submit" class="btn btn-primary">Login in</button>
             </form>
+            </c:if>
+            <c:if test="${!empty cus}">
+                <form class="form-inline" action="/MF01/logout.do" method="post">
+                    <label>${cus.customer_name} Welcome</label>
+                    <button type="submit" class="btn btn-primary">Login Out</button>
+                </form>
+            </c:if>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hover">
