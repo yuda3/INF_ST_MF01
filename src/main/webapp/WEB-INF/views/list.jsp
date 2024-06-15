@@ -31,9 +31,9 @@
             <c:if test="${empty cus}">
             <form class="form-inline" action="/MF01/login.do" method="post">
                 <label for="customer_id">ID:</label>
-                <input type="email" class="form-control" placeholder="Enter customer_id" id="customer_id" name="customer_id">
+                <input type="text" class="form-control" placeholder="Enter ID" id="customer_id" name="customer_id">
                 <label for="password">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="password">
+                <input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
                 <button type="submit" class="btn btn-primary">Login in</button>
             </form>
             </c:if>
