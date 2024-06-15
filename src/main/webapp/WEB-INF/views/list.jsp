@@ -27,7 +27,15 @@
 <div class="container">
     <h2>Web Database Programming</h2>
     <div class="card">
-        <div class="card-header">Book List</div>
+        <div class="card-header">
+            <form class="form-inline" action="/MF01/login.do" method="post">
+                <label for="customer_id">ID:</label>
+                <input type="email" class="form-control" placeholder="Enter customer_id" id="customer_id" name="customer_id">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" placeholder="Enter password" id="password">
+                <button type="submit" class="btn btn-primary">Login in</button>
+            </form>
+        </div>
         <div class="card-body">
             <table class="table table-bordered table-hover">
                 <thead>
